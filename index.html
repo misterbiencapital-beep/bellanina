@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BellaNina Estética | Especialista em Realçar sua Beleza</title>
+    <meta name="description" content="Especialista em estética facial e corporal em Sobral - CE. Realce sua beleza com cuidado e sofisticação.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --rose: #E5C1CD;
+            --graphite: #333333;
+            --off-white: #FAF9F6;
+            --white: #ffffff;
+            --text-muted: #666666;
+            --serif: 'Playfair Display', serif;
+            --sans: 'Montserrat', sans-serif;
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Reset e Base */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--sans);
+            background: var(--off-white);
+            color: var(--graphite);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 25px; }
+        .section-padding { padding: 100px 0; }
+        img { max-width: 100%; display: block; }
+        a { text-decoration: none; transition: var(--transition); }
+
+        /* Tipografia */
+        h1, h2, h3 { font-family: var(--serif); font-weight: 700; }
+        .text-gold { color: var(--gold); }
+
+        /* Header e Navegação */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+            backdrop-filter: blur(10px);
+        }
+
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-family: var(--serif); font-size: 1.5rem; font-weight: bold; color: var(--graphite); }
+        .logo span { color: var(--gold); }
+
+        .nav-links { display: flex; align-items: center; gap: 30px; }
+        .nav-links a { color: var(--graphite); font-size: 0.8rem; font-weight: 500; text-transform: uppercase; letter-spacing: 1.5px; }
+        .nav-links a:hover { color: var(--gold); }
+
+        .btn-cta-nav {
+            background: var(--graphite);
+            color: var(--white) !important;
+            padding: 12px 25px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        .btn-cta-nav:hover { background: var(--gold); transform: translateY(-2px); }
+
+        .menu-icon { display: none; font-size: 1.5rem; cursor: pointer; color: var(--gold); }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            min-height: 600px;
+            background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url('ambiente1.JPG');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-content { width: 100%; animation: fadeInUp 1s ease-out; }
+        .hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 20px; color: var(--graphite); }
+        .hero p { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 40px; max-width: 700px; margin-inline: auto; }
+
+        .btn-main {
+            background: var(--gold);
+            color: var(--white);
+            padding: 18px 40px;
+            font-weight: 600;
+            display: inline-block;
+            letter-spacing: 2px;
+            border-radius: 4px;
+        }
+        .btn-main:hover { background: var(--graphite); transform: translateY(-3px); }
+
+        /* Seções Gerais */
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-header h2 { font-size: 2.5rem; margin-bottom: 15px; }
+        .divider { width: 60px; height: 3px; background: var(--rose); margin: 0 auto; }
+
+        /* Tratamentos Grid */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .service-card { background: var(--white); border: 1px solid #eee; transition: var(--transition); border-radius: 8px; overflow: hidden; }
+        .service-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
+        .service-img { height: 280px; overflow: hidden; }
+        .service-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
+        .service-card:hover img { transform: scale(1.05); }
+        .service-info { padding: 30px; text-align: center; }
+        .service-info h3 { font-size: 1.4rem; margin-bottom: 15px; }
+        .service-info p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 20px; }
+        .btn-text { color: var(--gold); font-weight: 600; font-size: 0.8rem; text-transform: uppercase; }
+
+        /* Sobre */
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .about-img img { border-radius: 8px; box-shadow: 20px 20px 0 var(--rose); }
+        .about-text h2 { margin-bottom: 25px; }
+        .about-text p { margin-bottom: 20px; color: var(--text-muted); }
+
+        /* Galeria */
+        .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+        .gallery-item { height: 300px; overflow: hidden; border-radius: 8px; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition); filter: brightness(0.9); }
+        .gallery-item:hover img { transform: scale(1.05); filter: brightness(1); }
+
+        /* Footer */
+        footer { background: var(--graphite); color: var(--white); padding: 80px 0 30px; text-align: center; }
+        .footer-logo { font-family: var(--serif); font-size: 2rem; color: var(--gold); margin-bottom: 30px; }
+        .footer-info p { margin-bottom: 10px; color: #aaa; font-size: 0.9rem; }
+        .copyright { border-top: 1px solid #444; margin-top: 40px; padding-top: 30px; font-size: 0.8rem; color: #777; }
+
+        /* WhatsApp */
+        .whatsapp-float {
+            position: fixed; bottom: 30px; right: 30px;
+            background: #25d366; color: white;
+            width: 55px; height: 55px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 28px; z-index: 2000; box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        /* Animações */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 992px) {
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+            .about-grid { grid-template-columns: 1fr; text-align: center; }
+            .about-img { order: 2; }
+            .hero h1 { font-size: 2.8rem; }
+        }
+
+        @media (max-width: 768px) {
+            .menu-icon { display: block; }
+            .nav-links {
+                position: fixed; top: 0; right: -100%; height: 100vh; width: 80%;
+                background: var(--white); flex-direction: column; justify-content: center;
+                transition: 0.5s; box-shadow: -10px 0 30px rgba(0,0,0,0.05);
+            }
+            .nav-links.active { right: 0; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .section-padding { padding: 60px 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">BELLA<span>NINA</span></a>
+                <div class="nav-links" id="navLinks">
+                    <a href="#inicio">Início</a>
+                    <a href="#tratamentos">Tratamentos</a>
+                    <a href="#sobre">Sobre</a>
+                    <a href="#galeria">Clínica</a>
+                    <a href="https://wa.me/5588996282693" class="btn-cta-nav">AGENDAR CONSULTA</a>
+                </div>
+                <div class="menu-icon" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="inicio" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Realce sua beleza com <br><span class="text-gold">sofisticação</span></h1>
+                    <p>Referência em estética de alto padrão em Sobral. Cuidado personalizado e tecnologia de ponta para resultados naturais e elegantes.</p>
+                    <a href="https://wa.me/5588996282693" class="btn-main">AGENDAR MEU HORÁRIO</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="tratamentos" class="container section-padding">
+            <div class="section-header">
+                <p class="text-gold" style="text-transform: uppercase; letter-spacing: 3px; font-size: 0.7rem; font-weight: 600; margin-bottom: 10px;">Excelência BellaNina</p>
+                <h2>Nossos Tratamentos</h2>
+                <div class="divider"></div>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-img"><img src="Botox.JPG" alt="Toxina Botulínica"></div>
+                    <div class="service-info">
+                        <h3>Toxina Botulínica</h3>
+                        <p>Suavização de rugas e linhas de expressão com foco na naturalidade facial.</p>
+                        <a href="https://wa.me/5588996282693" class="btn-text">Saber mais <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-img"><img src="PreenchimentoFacial.JPG" alt="Preenchimento Facial"></div>
+                    <div class="service-info">
+                        <h3>Preenchimento Facial</h3>
+                        <p>Harmonização e reposição de volume facial com ácido hialurônico.</p>
+                        <a href="https://wa.me/5588996282693" class="btn-text">Saber mais <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-img"><img src="Bioestimuladores.JPG" alt="Bioestimuladores"></div>
+                    <div class="service-info">
+                        <h3>Bioestimuladores</h3>
+                        <p>Estímulo profundo de colágeno para recuperar a firmeza e o viço da pele.</p>
+                        <a href="https://wa.me/5588996282693" class="btn-text">Saber mais <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-img"><img src="LipodePapada.JPG" alt="Lipo de Papada"></div>
+                    <div class="service-info">
+                        <h3>Lipo de Papada</h3>
+                        <p>Redução da gordura submentoniana para um contorno definido e harmônico.</p>
+                        <a href="https://wa.me/5588996282693" class="btn-text">Saber mais <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-img"><img src="UltrassomMicrofocado.JPG" alt="Ultrassom Microfocado"></div>
+                    <div class="service-info">
+                        <h3>Ultrassom Microfocado</h3>
+                        <p>Tecnologia avançada para lifting facial não cirúrgico e combate à flacidez.</p>
+                        <a href="https://wa.me/5588996282693" class="btn-text">Saber mais <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-img"><img src="Jato.PNG" alt="Jato de Plasma"></div>
+                    <div class="service-info">
+                        <h3>Jato de Plasma</h3>
+                        <p>Tratamento para rejuvenescimento palpebral e remoção de manchas solares.</p>
+                        <a href="https://wa.me/5588996282693" class="btn-text">Saber mais <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sobre" class="section-padding" style="background: white;">
+            <div class="container about-grid">
+                <div class="about-img">
+                    <img src="Nina.JPG" alt="Especialista BellaNina">
+                </div>
+                <div class="about-text">
+                    <h2 class="text-gold">BellaNina Estética</h2>
+                    <p>Na BellaNina, acreditamos que a verdadeira beleza reside na harmonia e na autoconfiança. Nossa clínica é um refúgio de bem-estar em Sobral.</p>
+                    <p>Sob o comando da Dra. Nina, unimos ciência e arte para entregar resultados que preservam a sua identidade.</p>
+                    <a href="https://wa.me/5588996282693" class="btn-main" style="margin-top: 20px;">FALAR COM A ESPECIALISTA</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="galeria" class="container section-padding">
+            <div class="section-header">
+                <h2>O Nosso Espaço</h2>
+                <p>Ambiente planejado para o seu máximo conforto e segurança.</p>
+                <div class="divider"></div>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="ambiente1.JPG" alt="Clínica 1"></div>
+                <div class="gallery-item"><img src="ambiente2.JPG" alt="Clínica 2"></div>
+                <div class="gallery-item"><img src="ambiente3.JPG" alt="Clínica 3"></div>
+                <div class="gallery-item"><img src="ambiente4.JPG" alt="Clínica 4"></div>
+                <div class="gallery-item"><img src="ambiente5.JPG" alt="Clínica 5"></div>
+                <div class="gallery-item"><img src="ambiente2.JPG" alt="Clínica 6"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-logo">BELLA<span>NINA</span></div>
+            <div class="footer-info">
+                <p>Rua Guilherme Ehrlich de Menezes 146, Campo dos Velhos, Sobral - CE</p>
+                <p>(88) 3721-0690 | (88) 99628-2693</p>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 BellaNina Estética. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/5588996282693" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.getElementById('navLinks');
+            const icon = document.querySelector('.menu-icon i');
+            nav.classList.toggle('active');
+            
+            if(nav.classList.contains('active')) {
+                icon.classList.replace('fa-bars', 'fa-times');
+            } else {
+                icon.classList.replace('fa-times', 'fa-bars');
+            }
+        }
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('active');
+                document.querySelector('.menu-icon i').classList.replace('fa-times', 'fa-bars');
+            });
+        });
+    </script>
+</body>
+</html>
