@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bella Nina - Estética Avançada</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        :root {
+            --gold: #c5a059;
+            --dark: #2c2c2c;
+            --light-bg: #f9f9f7;
+            --white: #ffffff;
+            --serif: 'Playfair Display', serif;
+            --sans: 'Montserrat', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--sans);
+            background: var(--light-bg);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .section-padding { padding: 80px 0; }
+
+        header {
+            background: var(--white);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-family: var(--serif); font-size: 1.6rem; font-weight: bold; color: var(--gold); text-decoration: none; }
+
+        .btn-cta-nav {
+            background: var(--gold);
+            color: #fff;
+            padding: 10px 22px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .hero {
+            height: 80vh;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top:0; left:0; width:100%; height:100%;
+            background: rgba(0,0,0,0.4);
+            z-index: 1;
+        }
+
+        .hero-content { position: relative; z-index: 2; width: 100%; }
+        .hero h1 { font-family: var(--serif); font-size: 3rem; margin-bottom: 20px; }
+
+        .btn-main {
+            background: var(--gold);
+            color: #fff;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .section-title { text-align: center; font-family: var(--serif); font-size: 2.2rem; margin-bottom: 50px; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .service-card { background: #fff; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; }
+        .service-card:hover { transform: translateY(-10px); }
+        .service-img { height: 250px; background-size: cover; background-position: center; }
+        .service-info { padding: 25px; text-align: center; }
+        .service-info h3 { font-family: var(--serif); margin-bottom: 10px; color: var(--gold); }
+
+        .about-section { background: #fff; padding: 100px 0; }
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+        .about-img img { width: 100%; border-radius: 20px; box-shadow: 15px 15px 0 var(--gold); }
+
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
+        .gallery-item img { width: 100%; height: 300px; object-fit: cover; border-radius: 10px; }
+
+        footer { background: #222; color: #fff; padding: 50px 0; text-align: center; }
+        
+        .whatsapp-float {
+            position: fixed; bottom: 25px; right: 25px;
+            background: #25d366; color: white;
+            width: 60px; height: 60px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 30px; z-index: 1000; text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .about-grid { grid-template-columns: 1fr; text-align: center; }
+            .hero h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav class="container">
+        <a href="#" class="logo">Bella Nina</a>
+        <a href="https://wa.me/5588996282693" class="btn-cta-nav">Agendar Agora</a>
+    </nav>
+</header>
+
+<!-- HERO SECTION (Imagem: fachada.JPG) -->
+<section class="hero" style="background-image: url('fachada.JPG');">
+    <div class="container hero-content">
+        <h1>Sua Beleza em Boas Mãos</h1>
+        <p>Em Sobral, um novo conceito em saúde e beleza para realçar sua melhor versão.</p>
+        <a href="https://wa.me/5588996282693" class="btn-main">Quero uma avaliação</a>
+    </div>
+</section>
+
+<!-- TRATAMENTOS (Imagens: botox.JPG, botox.masculino.JPG, peelingquimico.JPG, utrasonmicrofocado.JPG, drenagemlinfatica.JPG) -->
+<section class="container section-padding">
+    <h2 class="section-title">Nossas Especialidades</h2>
+    <div class="services-grid">
+        <div class="service-card">
+            <div class="service-img" style="background-image: url('botox.JPG');"></div>
+            <div class="service-info"><h3>Toxina Botulínica</h3><p>Suavização de linhas de expressão.</p></div>
+        </div>
+        <div class="service-card">
+            <div class="service-img" style="background-image: url('botox.masculino.JPG');"></div>
+            <div class="service-info"><h3>Estética Masculina</h3><p>Cuidados específicos para o homem moderno.</p></div>
+        </div>
+        <div class="service-card">
+            <div class="service-img" style="background-image: url('peelingquimico.JPG');"></div>
+            <div class="service-info"><h3>Peeling Químico</h3><p>Renovação celular e tratamento de manchas.</p></div>
+        </div>
+        <div class="service-card">
+            <div class="service-img" style="background-image: url('utrasonmicrofocado.JPG');"></div>
+            <div class="service-info"><h3>Ultrassom Microfocado</h3><p>Lifting não invasivo e estímulo de colágeno.</p></div>
+        </div>
+        <div class="service-card">
+            <div class="service-img" style="background-image: url('drenagemlinfatica.JPG');"></div>
+            <div class="service-info"><h3>Drenagem Linfática</h3><p>Redução de medidas e desintoxicação.</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- SOBRE (Imagem: nina.JPG) -->
+<section class="about-section">
+    <div class="container about-grid">
+        <div class="about-img">
+            <img src="nina.JPG" alt="Bella Nina Estética">
+        </div>
+        <div class="about-text">
+            <h2>Excelência e Cuidado</h2>
+            <p>Atendimento focado na individualidade de cada paciente, unindo técnicas avançadas para resultados naturais.</p>
+            <p style="margin-top:15px; color: var(--gold); font-weight:600;">📍 Atendimento em Sobral, Ceará.</p>
+        </div>
+    </div>
+</section>
+
+<!-- GALERIA (Imagens: produtosarmonizacaofacial.JPG, tratamento.JPG) -->
+<section class="container section-padding">
+    <h2 class="section-title">Resultados e Ambiente</h2>
+    <div class="gallery-grid">
+        <div class="gallery-item"><img src="produtosarmonizacaofacial.JPG" alt="Harmonização Facial"></div>
+        <div class="gallery-item"><img src="tratamento.JPG" alt="Tratamentos Bella Nina"></div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>Bella Nina Estética | Sobral - CE</p>
+        <p>WhatsApp: (88) 99628-2693</p>
+        <p style="font-size: 0.7rem; opacity: 0.5; margin-top: 20px;">&copy; 2024 Bella Nina. Todos os direitos reservados.</p>
+    </div>
+</footer>
+
+<a href="https://wa.me/5588996282693" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+</body>
+</html>
